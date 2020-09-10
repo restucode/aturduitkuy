@@ -1,38 +1,480 @@
-.App {
-  text-align: center;
+/*variables*/
+:root {
+	--primary: #F0F0F0;
+	--secondary : #6062E1;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/*reset*/
+body,p,a,ul,li{
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	font-size: 16px;
+}
+li {
+	list-style-type: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/*base styles*/
+body {
+	background: var(--primary);
+	overflow-x: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+/*fonts*/
+
+@font-face{
+
 }
 
-.App-link {
-  color: #61dafb;
+h1,h2,h3,h4 {
+	color: #dddbff;
+	font-weight: normal;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+p,a,li {
+	color: #9893d8;
 }
+
+h1,h3 {
+	font-size: 1.2em;
+}
+h2 {
+	font-size: 1.6em;
+}
+h4 {
+	font-size: 1.1em;
+}
+
+.leading {
+	font-size: 1.1em;
+}
+
+/*mobile styles*/
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	grid-gap: 10px;
+}
+
+.header {
+	grid-column: 1/9;
+	background: var(--secondary);
+	border-bottom-right-radius: 25px;
+	border-bottom-left-radius: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 20px 0 20px;
+}
+
+
+.header h1 {
+	
+	margin: 0;
+	font-size: 1.8em;
+	color: white;
+	display: block;
+	text-align: center;
+}
+
+.header p {
+	display: block;
+	color: white;
+	text-align: center;
+}
+
+.header ul {
+  display: none;
+}
+.main-info {
+	margin: 30px 10px 15px;
+	grid-column: 1/9;
+	display: grid;
+	grid-template-columns: repeat(9,1fr);
+	gap: 10px;
+}
+
+.main-info .info-list {
+	grid-column: span 9;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 7px;
+	padding: 20px;
+	color: white;
+	box-shadow:
+	  0 9.7px 13.9px rgba(0, 0, 0, 0.02),
+	  0 17.5px 34px rgba(0, 0, 0, 0.03),
+	  0 27px 80px rgba(0, 0, 0, 0.04)
+	;
+}
+
+.info-list svg {
+	width: 30px;
+}
+
+.info-list span{
+	font-size: 1.2em;
+	font-weight: 600;
+}
+
+.main-info .saldo {
+	background: #8696F7;
+}
+
+.main-info .utang {
+	background: #FBC816;
+}
+
+.main-info .lunas {
+	background: #6FE675;
+}
+
+.main-list-pengutang {
+	margin: 0 20px;
+	grid-column: 1/9;
+	display: grid;
+	grid-template-columns: repeat(8,1fr);
+	gap: 20px;
+}
+
+.header-pengutang {
+	grid-column: 1/9;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header-pengutang  h2 {
+	color: black;
+	font-size: 1.5em;
+}
+
+.header-pengutang  button {
+	width: 40px;
+	height: 40px;
+	background: #8696F7;
+	border: none;
+	border-radius: 1000px;
+	cursor: pointer;
+	display: none;
+
+}
+
+.header-pengutang  svg{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.main-list-pengutang .list-pengutang {
+	padding: 20px;
+	grid-column: span 8;
+	background: blue;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 7px;
+	background: white;
+
+	box-shadow:
+	  0 0.5px 3.6px rgba(0, 0, 0, 0.002),
+	  0 1.5px 10px rgba(0, 0, 0, 0.004),
+	  0 3.6px 24.1px rgba(0, 0, 0, 0.013),
+	  0 12px 80px rgba(0, 0, 0, 0.04)
+	;
+
+}
+
+.list-pengutang button {
+	width: 30px;
+	height: 30px;
+	border: none;
+	border-radius: 1000px;
+	background: #F3F3F3;
+	transition: .2s;
+	cursor: pointer;
+	border: none;
+	outline: none;
+
+}
+
+.list-pengutang button:hover {
+	background: #EDEDED;
+	transition: .2s;
+}
+
+
+
+.main-list-lunas  h2 {
+	grid-column: 1/9;
+	color: black;
+}
+
+
+
+.main-list-lunas {
+	margin: 30px 20px 100px;
+	grid-column: 1/9;
+	display: grid;
+	grid-template-columns: repeat(8,1fr);
+	gap: 20px;
+}
+
+.main-list-lunas .list-lunas {
+	padding: 20px;
+	grid-column: span 8;
+	background: blue;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 7px;
+	background: white;
+
+	box-shadow:
+	  0 0.5px 3.6px rgba(0, 0, 0, 0.002),
+	  0 1.5px 10px rgba(0, 0, 0, 0.004),
+	  0 3.6px 24.1px rgba(0, 0, 0, 0.013),
+	  0 12px 80px rgba(0, 0, 0, 0.04)
+	;
+}
+
+.list-lunas button {
+	width: 30px;
+	height: 30px;
+	border: none;
+	border-radius: 1000px;
+	background: #F3F3F3;
+	transition: .2s;
+	cursor: pointer;
+	border: none;
+	outline: none;
+
+}
+
+.list-lunas button:hover {
+	background: #EDEDED;
+	transition: .2s;
+}
+
+.bar-fixed {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: var(--secondary);
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+
+}
+
+.bar-fixed ul {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 5px;
+}
+
+.bar-fixed li {
+	cursor: pointer;
+}
+.bar-fixed li svg {
+	width: 30px;
+	color:white;
+}
+
+.bar-fixed li:nth-child(2) svg {
+	width: 45px;
+}
+
+
+/*small table styles*/
+@media screen and (min-width: 620px) {
+
+ .main-list-pengutang .list-pengutang {
+	padding: 20px;
+	grid-column: span 4;
+	background: blue;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 7px;
+	background: white;
+
+	box-shadow:
+	  0 0.5px 3.6px rgba(0, 0, 0, 0.002),
+	  0 1.5px 10px rgba(0, 0, 0, 0.004),
+	  0 3.6px 24.1px rgba(0, 0, 0, 0.013),
+	  0 12px 80px rgba(0, 0, 0, 0.04)
+	;
+ }
+
+ .main-list-lunas .list-lunas {
+	padding: 20px;
+	grid-column: span 4;
+	background: blue;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 7px;
+	background: white;
+
+	box-shadow:
+	  0 0.5px 3.6px rgba(0, 0, 0, 0.002),
+	  0 1.5px 10px rgba(0, 0, 0, 0.004),
+	  0 3.6px 24.1px rgba(0, 0, 0, 0.013),
+	  0 12px 80px rgba(0, 0, 0, 0.04)
+	;
+}
+
+}
+
+/*large tabl& laptop styles*/
+@media screen and (min-width: 960px) {
+	.grid {
+		width: 100%;
+		max-width: 1200px;	
+		margin:0 auto;
+		box-sizing: border-box;
+	}
+
+	.header {
+	grid-column: 1/9;
+	background: var(--secondary);
+	border-bottom-right-radius: 25px;
+	border-bottom-left-radius: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 0 20px;
+	flex-direction: row;
+	}
+
+	.header .brand {
+		padding-left: 20px;
+	}
+
+	.header h1 {
+		padding-left: 0;
+	}
+
+	.header p {
+		text-align: left;
+	}
+
+	.header ul {
+		display: flex;
+		padding-right: 20px;
+	}
+
+	.header li {
+		color:white;
+		margin: 0 20px;
+		cursor: pointer;
+	}
+
+	.header li svg {
+		width: 30px;
+	}
+
+
+	.main-info .info-list {
+	 grid-column: span 3;
+	 display: flex;
+	 justify-content: space-between;
+	 align-items: center;
+	 border-radius: 7px;
+	 padding: 20px;
+	 color: white;
+	 box-shadow:
+	  0 9.7px 13.9px rgba(0, 0, 0, 0.02),
+	  0 17.5px 34px rgba(0, 0, 0, 0.03),
+	  0 27px 80px rgba(0, 0, 0, 0.04)
+	;
+	}
+
+	.main-list-pengutang {
+	 margin: 0 0;
+	 grid-column: 1/9;
+	 display: grid;
+	 grid-template-columns: repeat(8,1fr);
+	 gap: 20px;
+	}
+
+	.header-pengutang  button {
+	width: 40px;
+	height: 40px;
+	background: #8696F7;
+	border: none;
+	border-radius: 1000px;
+	cursor: pointer;
+	display: block;
+	}
+
+  .main-list-pengutang .list-pengutang {
+	padding: 20px;
+	grid-column: span 2;
+	background: blue;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 7px;
+	background: white;
+
+	box-shadow:
+	  0 0.5px 3.6px rgba(0, 0, 0, 0.002),
+	  0 1.5px 10px rgba(0, 0, 0, 0.004),
+	  0 3.6px 24.1px rgba(0, 0, 0, 0.013),
+	  0 12px 80px rgba(0, 0, 0, 0.04)
+	;
+ }
+
+
+
+ 	.main-list-lunas {
+	 margin: 0 0 30px;
+	 grid-column: 1/9;
+	 display: grid;
+	 grid-template-columns: repeat(8,1fr);
+	 gap: 20px;
+	}
+
+ .main-list-lunas .list-lunas {
+	padding: 20px;
+	grid-column: span 2;
+	background: blue;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 7px;
+	background: white;
+
+	box-shadow:
+	  0 0.5px 3.6px rgba(0, 0, 0, 0.002),
+	  0 1.5px 10px rgba(0, 0, 0, 0.004),
+	  0 3.6px 24.1px rgba(0, 0, 0, 0.013),
+	  0 12px 80px rgba(0, 0, 0, 0.04)
+	;
+}
+
+.bar-fixed {
+	display: none;
+}
+
+}
+
+/*desktop style*/
+@media screen and (min-width: 1200px) {
+
+
+
+
+}
+
+
+
